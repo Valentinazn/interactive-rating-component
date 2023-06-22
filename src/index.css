@@ -2,8 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-#root {
-  width: 100%;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
@@ -11,13 +13,8 @@ body {
   font-family: "Overpass", sans-serif;
   display: grid;
   place-items: center;
-  min-height: 100vh;
-  font-size: 15px;
-  letter-spacing: 0.05em;
-}
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+  min-height: 100vh;
+  font-size: 1px;
+  letter-spacing: 0.05em;
 }
