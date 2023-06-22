@@ -2,9 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+#root {
+  width: 100%;
+}
+
 body {
   background-color: hsl(216, 12%, 8%);
   font-family: "Overpass", sans-serif;
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  font-size: 15px;
+  letter-spacing: 0.05em;
 }
 
 * {
