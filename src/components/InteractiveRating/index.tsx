@@ -4,12 +4,14 @@ interface InteractiveRatingProps {
   img: string;
   data: IData[];
   textButton: string;
+  onClick: () => void;
 }
 
 const InteractiveRating = ({
   img,
   data,
   textButton,
+  onClick,
 }: InteractiveRatingProps) => {
   return (
     <main className="grid grid-cols-1 bg-darkBlue w-[100%] lg:max-w-[400px] min-w-[375px]  rounded-3xl gap-[20px] p-[30px]">
@@ -32,12 +34,18 @@ const InteractiveRating = ({
       </div>
       <div className="grid gap-4 grid-cols-5 text-center">
         {[1, 2, 3, 4, 5].map((x) => (
-          <p className="text-lightGrey font-bold  p-[10px] bg-veryDarkBlue rounded-[100%]">
+          <p
+            key={x}
+            className="text-lightGrey font-bold  p-[10px] bg-veryDarkBlue rounded-[100%]"
+          >
             {x}
           </p>
         ))}
       </div>
-      <button className="bg-orange w-[100%] rounded-3xl p-[10px] uppercase text-white">
+      <button
+        onClick={() => onClick()}
+        className="bg-orange w-[100%] rounded-3xl p-[10px] uppercase text-white"
+      >
         {textButton}
       </button>
     </main>
