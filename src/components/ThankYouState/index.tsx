@@ -1,6 +1,3 @@
-import React from "react";
-import { IData } from "../../../type";
-
 interface ThankYouStateProps {
   img: string;
   thankYouText: string;
