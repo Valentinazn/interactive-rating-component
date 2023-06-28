@@ -23,7 +23,7 @@ Users should be able to:
 
 ## Link 💻
 
-Coming soon
+https://interactive-rating-component-vz.netlify.app
 
 
 ## Build with 👷‍♀️
