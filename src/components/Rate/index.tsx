@@ -32,7 +32,7 @@ function Rate() {
   };
 
   return (
-    <main>
+    <main className=" flex my-0 mx-[auto] w-[90%] ">
       {showComponent ? (
         <ThankYouState
           img={IllustrationThankYou}

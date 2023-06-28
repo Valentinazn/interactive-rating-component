@@ -23,7 +23,7 @@ const InteractiveRating = ({
   return (
     <form
       onSubmit={onSubmit}
-      className="grid grid-cols-1 bg-darkBlue w-[100%] lg:max-w-[400px] min-w-[375px]  rounded-3xl gap-[20px] p-[30px]"
+      className="grid grid-cols-1 bg-darkBlue w-[100%] max-w-[400px]  rounded-3xl gap-[20px] p-[30px]"
     >
       <img
         className="p-[20px] bg-veryDarkBlue rounded-full"
