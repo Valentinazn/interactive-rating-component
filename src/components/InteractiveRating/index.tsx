@@ -3,18 +3,25 @@ import { IData } from "../../../type";
 interface InteractiveRatingProps {
   img: string;
   data: IData[];
+  rateData: number[];
   textButton: string;
-  onClick: () => void;
+  onClick: (e: any) => void;
+  onSubmit: (e: any) => void;
 }
 
 const InteractiveRating = ({
   img,
   data,
+  rateData,
   textButton,
   onClick,
+  onSubmit,
 }: InteractiveRatingProps) => {
   return (
-    <main className="grid grid-cols-1 bg-darkBlue w-[100%] lg:max-w-[400px] min-w-[375px]  rounded-3xl gap-[20px] p-[30px]">
+    <form
+      onSubmit={onSubmit}
+      className="grid grid-cols-1 bg-darkBlue w-[100%] lg:max-w-[400px] min-w-[375px]  rounded-3xl gap-[20px] p-[30px]"
+    >
       <img
         className="p-[20px] bg-veryDarkBlue rounded-full"
         src={img}
@@ -32,23 +39,28 @@ const InteractiveRating = ({
           );
         })}
       </div>
-      <div className="grid gap-4 grid-cols-5 text-center">
-        {[1, 2, 3, 4, 5].map((x) => (
-          <p
-            key={x}
-            className="text-lightGrey font-bold  p-[10px] bg-veryDarkBlue rounded-[100%]"
-          >
-            {x}
-          </p>
-        ))}
-      </div>
+      <ul className="grid gap-4 grid-cols-5 text-center cursor-pointer">
+        {rateData.map((x) => {
+          return (
+            <li
+              value={x}
+              key={x}
+              className="text-lightGrey font-bold  p-[10px] bg-veryDarkBlue rounded-[100%]"
+              onClick={() => onClick(x)}
+            >
+              {x}
+            </li>
+          );
+        })}
+      </ul>
       <button
-        onClick={() => onClick()}
+        type="submit"
+        onClick={(x) => onSubmit(x)}
         className="bg-orange w-[100%] rounded-3xl p-[10px] uppercase text-white"
       >
         {textButton}
       </button>
-    </main>
+    </form>
   );
 };
 

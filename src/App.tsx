@@ -9,6 +9,9 @@ import ThankYouState from "./components/ThankYouState";
 function App() {
   const [data, setData] = useState<IData[]>();
   const [showComponent, setShowComponet] = useState<boolean>(false);
+  const [rateValue, setRateValue] = useState<number>();
+
+  const rateData = [1, 2, 3, 4, 5];
 
   const getData = () => {
     return axios
@@ -21,12 +24,15 @@ function App() {
     getData();
   }, []);
 
-  const handleClick = () => {
-    setShowComponet(true);
+  const onSubmit = (e: any) => {
+    e.preventDefault();
+    if (rateValue) {
+      setShowComponet(true);
+    }
   };
 
   return (
-    <>
+    <main>
       {showComponent ? (
         <ThankYouState
           img={IllustrationThankYou}
@@ -34,17 +40,19 @@ function App() {
             "We apprecciated you taking the time to give a rating. If you ever need more support, don't hesitate to get in touch!"
           }
           title={"Thank You!"}
-          text={"You selected 4 out of 5"}
+          text={`You selected ${rateValue} out of ${rateData.length}`}
         />
       ) : (
         <InteractiveRating
+          rateData={rateData}
+          onClick={(e) => setRateValue(e)}
+          onSubmit={(e) => onSubmit(e)}
           img={Star}
           data={data ?? []}
           textButton="Submit"
-          onClick={handleClick}
         />
       )}
-    </>
+    </main>
   );
 }
 
